@@ -47,17 +47,23 @@ namespace RockPaperScissors
 
       if (userThrow == computerThrow)
       {
-        Console.WriteLine("tie");
+        ShowHand(userThrow);
+        Console.WriteLine("vs");
+        ShowHand(computerThrow);
       }
       else if (userThrow == 1 && computerThrow == 3 || userThrow == 2 && computerThrow == 1 || userThrow == 3 && computerThrow == 2)
       {
         userScore++;
-        Console.WriteLine("user wins");
+        ShowHand(userThrow);
+        Console.WriteLine("vs");
+        ShowHand(computerThrow);
       }
       else
       {
         computerScore++;
-        Console.WriteLine("computer wins");
+        ShowHand(userThrow);
+        Console.WriteLine("vs");
+        ShowHand(computerThrow);
       }
 
       while (userScore < 4 && computerScore < 4)
@@ -77,6 +83,21 @@ namespace RockPaperScissors
         ShowScore(userScore, computerScore);
         string newUserThrow = Console.ReadLine();
         AskUser(newUserThrow, userScore, computerScore);
+      }
+    }
+    static void ShowHand(int choice)
+    {
+      if (choice == 1)
+      {
+        Console.WriteLine("ROCK");
+      }
+      else if (choice == 2)
+      {
+        Console.WriteLine("PAPER");
+      }
+      else if (choice == 3)
+      {
+        Console.WriteLine("SCISSORS");
       }
     }
   }
